@@ -1,0 +1,91 @@
+Futebol|West Ham x Brentford 16:00
++1.5 1.28 80%
+Casa ou Empate 1.40 70%
+Ambos Marcam 1.66 60%
++0.5 Gol Casa 1.28 85%
+
+Futebol|Alavés x Valencia 16:00
+-3.5 1.22 79%
+Dupla Chance Casa 1.28 70%
+Ambos Marcam 2.00 50%
++0.5 Gol Casa 1.33 76%
+Vitória Casa 2.25 45%
+
+Futebol|Cremonese x Udinese 16:00
+-3.5 1.22 79%
++0.5 Gol Fora 1.30 72%
++0.5 Gol Casa 1.44 75%
+Ambos Marcam 1.95 37%
+Dupla Chance Casa 1.53 71%
+Dupla Chance Fora 1.36 57%
+-1.5 HT 1.33 75%
+
+Futebol|Al Ahli x Al Gharafa 15:15
+Vitória Casa 1.18 85%
++2.5 Gol 1.33 70%
++0.5 HT 1.20 80%
++1.5 Gol Casa 1.22 70%
+
+Futebol|Santos x Vitória 21:30
+1X 1.11 95%
+Vitória Casa 1.60 65%
+-1.5 HT 1.36 50%
++0.5 Gol Casa 1.16 93%
+
+Futebol|Al Sharjah x Tractor Sazi 13:00
+Dupla Chance Casa 1.22 80%
+Vitória Casa 1.95 43%
++0.5 HT 1.44 58%
++1.5 Gol Casa 2.10 30%
++0.5 Gol Casa 1.22 85%
+
+Futebol|Al Shorta x Al Ittihad 13:00
+Dupla Chance Fora 1.18 70%
+Vitória Fora 1.80 50%
+Ambos Marcam 1.72 65%
++2.5 Gol 1.85 55%
++0.5 HT 1.36 75%
++0.5 Gol Fora 1.16 85%
+
+Futebol|Torpedo Moskva x Shinnik 13:30
+Dupla Chance Casa 1.18 70%
+-3.5 Gol 1.15 85%
+-1.5 HT 1.24 80%
+
+Futebol|Jong PSV x ADO Den Haag 15:00
++1.5 Gol 1.10 90%
+Ambos Marcam 1.50 68%
++2.5 Gol 1.33 79%
+
+Futebol|Athletic Carpi x Ascoli 15:30
+Dupla Chance Fora 1.22 88%
+Vitória Fora 2.00 60%
++0.5 Gol Fora 1.28 75%
+
+Futebol|Tigre x Barracas Central 19:00
+-3.5 Gol 1.11 85%
+Dupla Chance Casa 1.20 75%
+-1.5 HT 1.22 72%
+
+Futebol|Jong AZ x Willem II 15:00
++1.5 Gol 1.14 85%
+
+Futebol|Roda JC x Almere City 15:00
++1.5 Gol 1.18 83%
+
+Futebol|La Equidad x Tolima 16:00
+-3.5 Gol 1.18 78%
++0.5 Gol Fora 1.25 70%
+Vitória Fora 1.83 55%
+Dupla Chance Fora 1.18 76%
+
+Futebol|Al Wahda x Al Duhail 10:45
++1.5 Gol 1.20 81%
+Dupla Chance Casa 1.25 70%
++0.5 Gol Casa 1.18 80%
+
+Futebol|Plaza Colonia x Liverpool Montevideo 19:00
+-3.5 Gol 1.22 80%
+Dupla Chance Fora 1.28 70%
+Vitória Fora 2.05 45%
++0.5 Gol Fora 1.28 68%
