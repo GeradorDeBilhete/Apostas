@@ -1,6 +1,6 @@
 let palpites = [];
 
-// Carregar palpites
+// Carregar palpites do bet.txt
 async function carregarPalpites() {
   const response = await fetch('bet.txt');
   const text = await response.text();
@@ -20,7 +20,7 @@ async function carregarPalpites() {
       jogoAtual = { esporte: esporteAtual, nome: nomeJogo, palpites: [] };
     } else {
       const partes = linha.split(' ');
-      const porcentagem = partes.pop();
+      const porcentagem = partes.pop(); // já inclui %
       const odd = partes.pop();
       const mercado = partes.join(' ');
       jogoAtual.palpites.push({ mercado, odd, porcentagem });
@@ -54,7 +54,7 @@ function criarFiltros() {
   });
 }
 
-// Atualizar mercados
+// Atualizar mercados dinamicamente
 function atualizarMercados() {
   const mercadosContainer = document.getElementById('mercadosContainer');
   mercadosContainer.innerHTML = '';
@@ -83,7 +83,7 @@ async function gerarBilhete() {
   const esportesSelecionados = Array.from(document.querySelectorAll('.filtroEsporte:checked')).map(cb => cb.value);
   const mercadosSelecionados = Array.from(document.querySelectorAll('.filtroMercado:checked')).map(cb => cb.value);
 
-  // PEGANDO OS NOVOS FILTROS
+  // Pegando valores dos filtros avançados
   const qtdJogos = parseInt(document.getElementById('qtdJogos').value);
   const oddMin = parseFloat(document.getElementById('oddMin').value);
   const oddMax = parseFloat(document.getElementById('oddMax').value);
@@ -91,11 +91,11 @@ async function gerarBilhete() {
 
   let jogosFiltrados = palpites.filter(j => esportesSelecionados.includes(j.esporte));
 
-  // Filtra palpites de cada jogo pelos mercados selecionados, odd e chance
+  // Filtrar palpites por mercado, odd e %chance
   jogosFiltrados.forEach(j => {
     j.palpites = j.palpites.filter(p => {
       const odd = parseFloat(p.odd);
-      const chance = parseFloat(p.porcentagem);
+      const chance = parseFloat(p.porcentagem.replace('%',''));
       return mercadosSelecionados.includes(p.mercado) &&
              odd >= oddMin && odd <= oddMax &&
              chance >= chanceMin;
@@ -128,7 +128,7 @@ async function mostrarBilhete() {
   container.innerHTML = '';
 
   if (resultado.bilhete.length === 0) {
-    container.innerHTML = '<p>⚠️ Selecione ao menos um esporte e mercado disponível!</p>';
+    container.innerHTML = '<p>⚠️ Selecione ao menos um esporte, mercado e configure filtros válidos!</p>';
     return;
   }
 
@@ -137,7 +137,8 @@ async function mostrarBilhete() {
 
   resultado.bilhete.forEach(item => {
     const jogoP = document.createElement('p');
-    jogoP.textContent = `🎟️ ${item.jogo} - ${item.mercado} Odd: ${item.odd} ${item.porcentagem}%`;
+    // ✅ já não adiciona % extra, pega do bet.txt
+    jogoP.textContent = `🎟️ ${item.jogo} - ${item.mercado} Odd: ${item.odd} ${item.porcentagem}`;
     bilheteDiv.appendChild(jogoP);
   });
 
@@ -148,6 +149,8 @@ async function mostrarBilhete() {
   container.appendChild(bilheteDiv);
 }
 
+// Evento do botão
 document.getElementById('gerarBtn').addEventListener('click', mostrarBilhete);
 
+// Carregar palpites ao iniciar
 carregarPalpites();
