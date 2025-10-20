@@ -83,15 +83,35 @@ async function gerarBilhete() {
   const esportesSelecionados = Array.from(document.querySelectorAll('.filtroEsporte:checked')).map(cb => cb.value);
   const mercadosSelecionados = Array.from(document.querySelectorAll('.filtroMercado:checked')).map(cb => cb.value);
 
+  // PEGANDO OS NOVOS FILTROS
+  const qtdJogos = parseInt(document.getElementById('qtdJogos').value);
+  const oddMin = parseFloat(document.getElementById('oddMin').value);
+  const oddMax = parseFloat(document.getElementById('oddMax').value);
+  const chanceMin = parseFloat(document.getElementById('chanceMin').value);
+
   let jogosFiltrados = palpites.filter(j => esportesSelecionados.includes(j.esporte));
-  jogosFiltrados = jogosFiltrados.sort(() => 0.5 - Math.random()).slice(0, 5);
+
+  // Filtra palpites de cada jogo pelos mercados selecionados, odd e chance
+  jogosFiltrados.forEach(j => {
+    j.palpites = j.palpites.filter(p => {
+      const odd = parseFloat(p.odd);
+      const chance = parseFloat(p.porcentagem);
+      return mercadosSelecionados.includes(p.mercado) &&
+             odd >= oddMin && odd <= oddMax &&
+             chance >= chanceMin;
+    });
+  });
+
+  // Remove jogos sem palpites válidos
+  jogosFiltrados = jogosFiltrados.filter(j => j.palpites.length > 0);
+
+  // Seleciona aleatoriamente a quantidade de jogos definida
+  jogosFiltrados = jogosFiltrados.sort(() => 0.5 - Math.random()).slice(0, qtdJogos);
 
   const bilhete = [];
 
   jogosFiltrados.forEach(jogo => {
-    let palpitesDisponiveis = jogo.palpites.filter(p => mercadosSelecionados.includes(p.mercado));
-    if (palpitesDisponiveis.length === 0) return;
-
+    let palpitesDisponiveis = jogo.palpites;
     const palpite = palpitesDisponiveis[Math.floor(Math.random() * palpitesDisponiveis.length)];
     bilhete.push({ jogo: jogo.nome, mercado: palpite.mercado, odd: palpite.odd, porcentagem: palpite.porcentagem });
   });

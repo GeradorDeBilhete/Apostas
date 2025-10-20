@@ -16,6 +16,26 @@
       <div id="esportesContainer"></div>
       <div id="mercadosContainer"></div>
     </div>
+		
+		<div class="configuracoes">
+  <h2>Configurações do Bilhete</h2>
+  <label>
+    Quantidade de jogos:
+    <input type="number" id="qtdJogos" min="1" max="15" value="5">
+  </label>
+  <label>
+    Odd mínima:
+    <input type="number" id="oddMin" step="0.01" value="1.10">
+  </label>
+  <label>
+    Odd máxima:
+    <input type="number" id="oddMax" step="0.01" value="5.00">
+  </label>
+  <label>
+    % Chance mínima:
+    <input type="number" id="chanceMin" step="1" value="30">
+  </label>
+</div>
 
     <button id="gerarBtn">🎯 Gerar Bilhete</button>
 
